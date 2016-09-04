@@ -9,6 +9,10 @@ var Timer = React.createClass({
       timerStatus: 'paused'
     }
   },
+  componentWillUnmount: function() {
+    clearInterval(this.timer);
+    this.timer = undefined;
+  },
   componentDidUpdate: function(prevProps, prevState) {
 
     if( prevState.timerStatus != this.state.timerStatus ){
