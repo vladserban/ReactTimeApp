@@ -1,6 +1,10 @@
 {
   "name": "time-app",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vladserban/react-time-app.git"
+  },
   "description": "React Time App",
   "main": "index.js",
   "scripts": {
@@ -38,6 +42,7 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.5.3",
     "node-sass": "^3.4.2",
+    "react-addons-test-utils": "^0.14.7",
     "sass-loader": "^3.1.2",
     "webpack": "^1.12.13"
   }
