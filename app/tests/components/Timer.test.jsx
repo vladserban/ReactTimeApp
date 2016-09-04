@@ -14,7 +14,7 @@ describe('Timer', () => {
   describe('events', () => {
     it('should increment when started', (done) => {
       var timer = TestUtils.renderIntoDocument(<Timer />);
-      timer.state.count = 10;
+      timer.setState({count: 10});
       timer.handleStatusChange('started');
 
       setTimeout( () => {
@@ -26,7 +26,8 @@ describe('Timer', () => {
 
     it('should pause when paused', (done) => {
       var timer = TestUtils.renderIntoDocument(<Timer />);
-      timer.state.count = 10;
+      timer.setState({count: 10});
+      timer.handleStatusChange('started');
       timer.handleStatusChange('paused');
 
       setTimeout( () => {
@@ -38,9 +39,11 @@ describe('Timer', () => {
 
     it('should reset to zero when stopped', () => {
       var timer = TestUtils.renderIntoDocument(<Timer />);
-      timer.state.count = 10;
+      timer.setState({count: 10});
+      timer.handleStatusChange('started');
       timer.handleStatusChange('stopped');
 
+      expect(timer.state.timerStatus).toBe('stopped');
       expect(timer.state.count).toBe(0);
     });
   });
